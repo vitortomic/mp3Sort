@@ -40,9 +40,10 @@ const sortFile = async (file, filePath, tags)=>{
 
 const makeFolderIfNotExists = (folderPath)=> {
   if (!fs.existsSync(folderPath)) {
-    fs.mkdirSync(folderPath)
+    fs.mkdirSync(folderPath, { recursive: true })
     console.log(`Created folder: ${folderPath}`)
   }
 }
+
 
 fs.readdirSync(config.readPath).filter(fileName=>mp3Regex.test(fileName)).forEach(processFile)
