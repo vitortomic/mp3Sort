@@ -1,0 +1,19 @@
+{
+  "name": "mp3sort",
+  "version": "1.0.0",
+  "description": "order mp3 files in folders by artist and album",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitortomic/mp3Sort.git"
+  },
+  "author": "vitortomic@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitortomic/mp3Sort/issues"
+  },
+  "homepage": "https://github.com/vitortomic/mp3Sort#readme"
+}
