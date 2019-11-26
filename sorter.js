@@ -1,4 +1,7 @@
-const config = require('./config.json')
+const config = {
+  writePath: "./",
+  readPath: "./"
+}
 const fs = require('fs');
 const mm = require('music-metadata')
 
@@ -7,6 +10,7 @@ let counter = 0
 
 const processFile = async (file, key, array)=>{
   try {
+    console.log(file)
     const filePath = `${config.readPath}${file}`
     const tags = (await mm.parseFile(filePath)).common
     await sortFile(file, filePath, tags)
@@ -17,6 +21,7 @@ const processFile = async (file, key, array)=>{
   } catch (error) {
     console.log(error)
   }
+  
 }
 
 const sortFile = async (file, filePath, tags)=>{
