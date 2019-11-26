@@ -6,12 +6,16 @@ const mp3Regex = new RegExp(".mp3$")
 let counter = 0
 
 const processFile = async (file, key, array)=>{
-  const filePath = `${config.readPath}${file}`
-  const tags = (await mm.parseFile(filePath)).common
-  await sortFile(file, filePath, tags)
-  counter++
-  if (key == array.length-1) {
-    console.log(`Sorted ${counter} mp3 files`)
+  try {
+    const filePath = `${config.readPath}${file}`
+    const tags = (await mm.parseFile(filePath)).common
+    await sortFile(file, filePath, tags)
+    counter++
+    if (key == array.length-1) {
+      console.log(`Sorted ${counter} mp3 files`)
+    }
+  } catch (error) {
+    console.log(error)
   }
 }
 
