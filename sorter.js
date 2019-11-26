@@ -1,14 +1,14 @@
 const config = require('./config.json')
 const fs = require('fs');
 const mm = require('music-metadata')
-const util = require('util')
 
-console.log(config.path)
+const mp3Regex = new RegExp(".mp3$")
 
-mm.parseFile('../file_example_MP3_700KB.mp3')
-  .then( metadata => {
-    console.log(util.inspect(metadata, { showHidden: false, depth: null }));
-  })
-  .catch( err => {
-    console.error(err.message);
-  });
+const processFile = async (file)=>{
+  filePath = `${config.path}${file}`
+  let tags = (await mm.parseFile(filePath)).common
+  console.log(tags.artist)
+  console.log(tags.album)
+}
+
+fs.readdirSync(config.path).filter(fileName=>mp3Regex.test(fileName)).forEach(processFile)
