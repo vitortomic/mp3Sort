@@ -1,4 +1,4 @@
 {
-    "readPath" : "../",
-    "writePath" : "../"
+    "readPath" : "./",
+    "writePath" : "./"
 }

@@ -2,6 +2,7 @@
   "name": "mp3sort",
   "version": "1.0.0",
   "description": "order mp3 files in folders by artist and album",
+  "bin": "bin.js",
   "main": "sorter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
