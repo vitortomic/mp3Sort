@@ -21,14 +21,18 @@ const processFile = async (file, key, array)=>{
 
 const sortFile = async (file, filePath, tags)=>{
   let writePath = `${config.writePath}`
-  if (tags.artist) {
-    writePath = `${writePath}/${tags.artist}`
-    makeFolderIfNotExists(writePath)
-  }
-  if (tags.album) {
+  if (tags.artists && tags.artists.lenght > 1) {
     writePath = `${writePath}/${tags.album}`
-    makeFolderIfNotExists(writePath)
+  } else {
+    if (tags.artist) {
+      writePath = `${writePath}/${tags.artist}`
+      
+    }
+    if (tags.album) {
+      writePath = `${writePath}/${tags.album}`
+    }
   }
+  makeFolderIfNotExists(writePath)
   fs.copyFileSync(filePath, `${writePath}/${file}`)
   console.log(`Copied ${file} to ${writePath}`)
 }
